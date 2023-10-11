@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/swagger/docs');
+});
+
+Route::middleware('verify_access_token')->group(function () {
+    Route::get('user/auth', [UserController::class, 'auth'])->name('user.auth');
 });

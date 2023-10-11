@@ -59,3 +59,36 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Deployment
+
+Чтобы развернуть проект нужно:
+
+- Скачать проект и перейти в корень проекта.
+- Далее необходимо выполнить команды:
+
+```php
+composer install
+```
+```php
+./vendor/bin/sail up -d
+```
+```php
+./vendor/bin/sail artisan migrate
+```
+
+- После этого проект должен стать доступен по адресу - http://localhost
+- Документация для api открывается по адресу - http://localhost/swagger/docs
+
+- В запросе для авторизации необходимо передать:
+
+- header:
+  "Authorization": access token
+  
+- query params:
+  "id": id,
+  "first_name": first_name,
+  "last_name": last_name,
+  "city": city,
+  "country": country
+  
