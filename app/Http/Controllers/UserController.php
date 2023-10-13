@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
-use App\Models\UsersSessions;
+use App\Models\User;
+use App\Models\UserSession;
 use Illuminate\Http\JsonResponse;
 use App\Http\Services\UserService;
 use App\Http\Requests\UserAuthRequest;
@@ -36,7 +36,7 @@ class UserController extends Controller
      *     @OA\Response(
      *         response = 200,
      *         description = "Response",
-     *         @OA\JsonContent(ref="#/components/schemas/Users")
+     *         @OA\JsonContent(ref="#/components/schemas/User")
      *     ),
      * )
      * @param UserAuthRequest $request
@@ -53,7 +53,7 @@ class UserController extends Controller
             ]);
         }
 
-        $user = Users::updateOrCreate(['id' => $request->get('id')],
+        $user = User::updateOrCreate(['id' => $request->get('id')],
             [
                 'first_name' => $request->get('first_name'),
                 'last_name' => $request->get('last_name'),
@@ -62,7 +62,7 @@ class UserController extends Controller
             ]
         );
 
-        UsersSessions::updateOrCreate(['user_id' => $request->get('id')],
+        UserSession::updateOrCreate(['user_id' => $request->get('id')],
             [
                 'user_id' => $request->get('id'),
                 'access_token' => $accessToken,

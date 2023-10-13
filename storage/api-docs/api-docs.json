@@ -74,7 +74,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Users"
+                                    "$ref": "#/components/schemas/User"
                                 }
                             }
                         }
@@ -90,7 +90,7 @@
     },
     "components": {
         "schemas": {
-            "Users": {
+            "User": {
                 "properties": {
                     "id": {
                         "type": "integer"
@@ -116,7 +116,7 @@
                 },
                 "type": "object"
             },
-            "UsersSessions": {
+            "UserSession": {
                 "properties": {
                     "id": {
                         "type": "integer"
